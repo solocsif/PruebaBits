@@ -3,44 +3,45 @@ package selenium;
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import driver.driver;
 public class selenium extends driver{
+private Robot robot;
 public void abrir() {
 	System.setProperty("webdriver.chrome.driver","driver/chromedriver.exe");
 	driver= new ChromeDriver();
 	driver.manage().window().maximize();
 }
 public void abrirpagina() {
-	driver.get("https://www.ktronix.com/");
+	driver.get("https://bits-angular-stg.dev01.bitsamericas.net/contactenos");
 }
-public void ingresarproductoabuscar(){
- WebElement texto=driver.findElement(By.xpath("//input[@id='js-site-search-input']"));
- texto.clear();
- texto.sendKeys("Silla Gamer");
- WebElement boton=driver.findElement(By.xpath("//*[@id=\"js-search-button\"]"));
- boton.click();
+public void ingresarproductoabuscar() throws InterruptedException, AWTException{
+	Robot robot = new Robot();
+	JavascriptExecutor js = (JavascriptExecutor) driver;
+	Thread.sleep(100000);
+	robot.mouseMove(800, 460);
+	js.executeScript("window.scrollBy(0,200)");
+	/*WebElement texto=driver.findElement(By.xpath("//input[@id='contact_us__correo_electronico']"));
+	 texto.clear();*/
+	Thread.sleep(20000);
+	 js.executeScript("window.scrollBy(0,200)");
+/*js.executeScript("arguments[0].scrollIntoView();", texto);*/
 }
 public void seleccionarmenorprecio() {
-	WebElement boton=driver.findElement(By.xpath("//select[@id='sortOptions1']"));
-	boton.sendKeys("price-asc");
+	/*WebElement boton=driver.findElement(By.xpath("//select[@id='sortOptions1']"));
+	boton.sendKeys("price-asc");*/
 }
 public void agregaralcarrito() throws InterruptedException {
-	JavascriptExecutor js = (JavascriptExecutor) driver;
+	/*JavascriptExecutor js = (JavascriptExecutor) driver;
 	js.executeScript("window.scrollBy(0,200)");
 	WebElement seleccionar=driver.findElement(By.xpath("//button[@id='js-add-cart-7705946322560']"));
-	seleccionar.click();
+	seleccionar.click();*/
 }
 public void finalizarcompra() throws AWTException, InterruptedException {
-	Robot robot = new Robot();
+	/*Robot robot = new Robot();
 	robot.mouseMove(800, 460);
 	Thread.sleep(4000);
 	robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
@@ -99,7 +100,7 @@ public void finalizarcompra() throws AWTException, InterruptedException {
 	js.executeScript("window.scrollBy(0,300)");
 	Thread.sleep(2000);
 	WebElement botonb=driver.findElement(By.id("deliveryMethodSubmit"));
-	botonb.click();
+	botonb.click();*/
 	
 }
 }
