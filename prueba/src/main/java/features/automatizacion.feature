@@ -1,8 +1,6 @@
-Feature: rellenar datos contacto
-Scenario: enviar los datos de contacto
+Feature: login php
+Scenario: autenticarse en la pagina
 Given abrir el navegador
 When ingresar a la url
-Then hacer scroll hasta el formulario de contacto
-And rellenar los datos obligatorios
-And dar click en validar el capcha
-And dar click en el boton enviar
+Then ingresar usuario y contrasena
+And pulsar boton save

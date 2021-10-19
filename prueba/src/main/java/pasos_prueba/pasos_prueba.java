@@ -1,5 +1,6 @@
 package pasos_prueba;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -16,21 +17,13 @@ public class pasos_prueba {
 		login.abrirpagina();
 	}
 
-	@Then("^hacer scroll hasta el formulario de contacto$")
-	public void ingresar_producto() throws Throwable {
-		login.ingresarproductoabuscar();
+	@Then("^ingresar usuario y contrasena$")
+	public void ingresar_usuario_y_contrasena() throws Throwable {
+		login.ingresarusuarioycontrasena();
 	}
 
-	@Then("^rellenar los datos obligatorios$")
-	public void seleccionar_producto() throws Throwable {
-		login.seleccionarmenorprecio();
-	}
-	@Then("^dar click en validar el capcha$")
-	public void agregar_producto() throws Throwable {
-		login.agregaralcarrito();
-	}
-	@Then("^dar click en el boton enviar")
-	public void finalizar_compra() throws Throwable {
-		login.finalizarcompra();
+	@Then("^pulsar boton save$")
+	public void pulsar_boton_save() throws Throwable {
+		login.pulsarbotonsave();
 	}
 }
